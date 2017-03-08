@@ -1,0 +1,17 @@
+{
+  "name": "getdata",
+  "version": "1.0.0",
+  "description": "gets entire listening history from lastfm in JSON format",
+  "main": "getdata.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Will McCracken",
+  "license": "ISC",
+  "dependencies": {
+    "bl": "^1.2.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "querystring": "^0.2.0"
+  }
+}
