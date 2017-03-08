@@ -10,6 +10,9 @@ var user = 'INSERT USER HERE';
 
 http.get('http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&api_key=60e256b3eda3fe54934d79339614411f&user=' + user + '&format=json', function(res) {
     var str = '';
+    if (user=="INSERT USER HERE"){
+        console.log("ERROR: Please Enter Username");
+    }
     console.log('Response is ' + res.statusCode);
     
     res.on('data', function(chunk) {
