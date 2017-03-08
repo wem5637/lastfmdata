@@ -6,8 +6,8 @@ var pages = 0;
 var results = [];
 var count = 0;
 
+var user = 'INSERT USERNAME HERE';
 
-var user = 'BoxerMc';
 http.get('http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&api_key=60e256b3eda3fe54934d79339614411f&user=' + user + '&format=json', function(res) {
     var str = '';
     console.log('Response is ' + res.statusCode);
@@ -29,7 +29,7 @@ http.get('http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&api_key=
                     results[index] = data.toString();
                     count++;
                     if (count === pages-1) {
-                      fs.writeFile('ok.txt', results);
+                      fs.writeFile('lfmhistory.JSON', results);
                     }
                 }));
             });
