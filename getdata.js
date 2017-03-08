@@ -3,10 +3,10 @@ var http = require('http');
 var fs = require('fs');
 var bl = require('bl');
 var pages = 0;
-var results = [];
+var results = {};
 var count = 0;
 
-var user = 'INSERT USERNAME HERE';
+var user = 'INSERT USER HERE';
 
 http.get('http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&api_key=60e256b3eda3fe54934d79339614411f&user=' + user + '&format=json', function(res) {
     var str = '';
@@ -29,6 +29,7 @@ http.get('http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&api_key=
                     results[index] = data.toString();
                     count++;
                     if (count === pages-1) {
+                      results = JSON.stringify(results);
                       fs.writeFile('lfmhistory.JSON', results);
                     }
                 }));
